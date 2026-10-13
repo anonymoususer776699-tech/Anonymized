@@ -1,0 +1,6 @@
+Seed,Method,AUROC
+42,CAWC v5 Composite (unsupervised),0.7519
+43,CAWC v5 Composite (unsupervised),0.747
+100,CAWC v5 Composite (unsupervised),0.7512
+105,CAWC v5 Composite (unsupervised),0.7513
+137,CAWC v5 Composite (unsupervised),0.7532

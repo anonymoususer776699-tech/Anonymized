@@ -1,0 +1,9 @@
+[
+  {
+    "sample_idx": 2347,
+    "pos": 2,
+    "token": "Ġanswer",
+    "composite": 0.9312450397252526,
+    "generator": "gpt-3.5-turbo-0613"
+  }
+]

@@ -1,0 +1,7 @@
+Generator,Composite_AUROC,Best_Metric,Best_AUROC,N_tokens,N_hallucinated
+gpt-3.5-turbo-0613,0.6837,kl,0.694,79036,728
+gpt-4-0613,0.6929,composite,0.6929,74485,387
+llama-2-13b-chat,0.7021,composite,0.7021,84103,4607
+llama-2-70b-chat,0.7484,composite,0.7484,79635,3719
+llama-2-7b-chat,0.6982,composite,0.6982,82413,4843
+mistral-7B-instruct,0.7259,composite,0.7259,71524,5016

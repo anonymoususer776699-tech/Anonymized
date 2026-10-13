@@ -1,0 +1,4 @@
+Type,Count,Composite_AUROC,CI_low,CI_high,Best_Metric,Best_AUROC
+contradictory,5692,0.6473,0.6415,0.6531,composite,0.6473
+unsupported,1877,0.8253,0.817,0.8332,composite,0.8253
+fabricated,9834,0.7972,0.7931,0.8013,composite,0.7972

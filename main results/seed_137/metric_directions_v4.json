@@ -1,0 +1,38 @@
+{
+  "entropy": {
+    "raw_auroc": 0.5735705738866745,
+    "negated_auroc": 0.4264294261133255,
+    "negate": false,
+    "chosen_auroc": 0.5735705738866745
+  },
+  "ig": {
+    "raw_auroc": 0.3208696030265278,
+    "negated_auroc": 0.6791303969734722,
+    "negate": true,
+    "chosen_auroc": 0.6791303969734722
+  },
+  "kl": {
+    "raw_auroc": 0.382142884770699,
+    "negated_auroc": 0.6178571152293011,
+    "negate": true,
+    "chosen_auroc": 0.6178571152293011
+  },
+  "cd": {
+    "raw_auroc": 0.6502683209651001,
+    "negated_auroc": 0.3497316790348999,
+    "negate": true,
+    "chosen_auroc": 0.3497316790348999
+  },
+  "se": {
+    "raw_auroc": 0.5,
+    "negated_auroc": 0.5,
+    "negate": false,
+    "chosen_auroc": 0.5
+  },
+  "selfcheck": {
+    "raw_auroc": 0.5686640343028301,
+    "negated_auroc": 0.43133596569717,
+    "negate": false,
+    "chosen_auroc": 0.5686640343028301
+  }
+}

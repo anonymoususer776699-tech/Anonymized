@@ -1,0 +1,20 @@
+{
+  "train": {
+    "samples": 15089,
+    "se_samples": 15089,
+    "selfcheck_samples": 15089,
+    "selfcheck_nli_marked": false
+  },
+  "test": {
+    "samples": 2700,
+    "se_samples": 2700,
+    "selfcheck_samples": 2700,
+    "selfcheck_nli_marked": false
+  },
+  "halueval": {
+    "samples": 10000,
+    "se_samples": 10000,
+    "selfcheck_samples": 10000,
+    "selfcheck_nli_marked": false
+  }
+}

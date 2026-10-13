@@ -1,0 +1,22 @@
+WEIGHT SENSITIVITY / ROBUSTNESS ANALYSIS
+==================================================
+
+Tests whether CAWC v5 performance is stable under weight variation.
+If performance is highly sensitive to specific weights, the 'theoretically
+justified' claim is weakened — the weights may be implicitly tuned.
+
+  CAWC v5 (current)                   AUROC=0.7412 Δ=+0.0000  Current composite with all features
+  Equal weights (1/6 each)            AUROC=0.6832 Δ=-0.0580  No weighting preference
+  Random Dirichlet (50 trials)        AUROC=0.6748 (std=0.0363) Δ=-0.0664  std=0.0363, range=[0.6175,0.7344]
+  Remove entropy                      AUROC=0.6779 Δ=-0.0633  HURTS removal
+  Remove ig                           AUROC=0.6555 Δ=-0.0857  HURTS removal
+  Remove kl                           AUROC=0.6546 Δ=-0.0866  HURTS removal
+  Remove cd                           AUROC=0.6600 Δ=-0.0811  HURTS removal
+  Remove selfcheck                    AUROC=0.6790 Δ=-0.0622  HURTS removal
+  Remove se                           AUROC=0.7273 Δ=-0.0139  HURTS removal
+  ±20% perturbation (50 trials)       AUROC=0.7332 (std=0.0004) Δ=-0.0079  std=0.0004
+
+INTERPRETATION:
+Equal weights underperform CAWC v5 by -0.0580 AUROC,
+suggesting the weight structure does contribute to performance.
+±20% perturbation std=0.0004 — performance is STABLE under weight noise.

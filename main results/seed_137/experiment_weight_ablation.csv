@@ -1,0 +1,11 @@
+Variant,AUROC,Delta,Notes,AUROC_std,AUROC_min,AUROC_max
+CAWC v5 (current),0.7532,0.0,Current composite with all features,,,
+Equal weights (1/6 each),0.7398,-0.0135,No weighting preference,,,
+Random Dirichlet (50 trials),0.7119,-0.0414,"std=0.0308, range=[0.6423,0.7461]",0.0308,0.6423,0.7461
+Remove entropy,0.7423,-0.0109,HURTS removal,,,
+Remove ig,0.7205,-0.0327,HURTS removal,,,
+Remove kl,0.7142,-0.0391,HURTS removal,,,
+Remove cd,0.7283,-0.025,HURTS removal,,,
+Remove selfcheck,0.7424,-0.0109,HURTS removal,,,
+Remove se,0.7418,-0.0114,HURTS removal,,,
+±20% perturbation (50 trials),0.7431,-0.0101,std=0.0014,0.0014,,

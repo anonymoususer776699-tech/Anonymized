@@ -1,0 +1,7 @@
+EXPERIMENT 8 - MEASURED BASELINE COMPARISON
+
+Entropy baseline AUROC: 0.5938
+CAWC v5 composite AUROC: 0.7412
+Absolute AUROC difference (composite minus entropy): +0.1474
+
+Both values are measured on the same evaluation split in this run.

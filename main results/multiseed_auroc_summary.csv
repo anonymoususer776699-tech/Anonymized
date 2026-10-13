@@ -1,0 +1,2 @@
+Method,N_seeds,AUROC_mean,AUROC_std,AUROC_mean_std
+CAWC v5 Composite (unsupervised),5,0.7509,0.0023,0.7509 +/- 0.0023

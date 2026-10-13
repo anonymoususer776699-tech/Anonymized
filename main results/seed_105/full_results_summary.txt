@@ -1,0 +1,37 @@
+FULL RESULTS SUMMARY — CAWC (UNSUPERVISED)
+============================================================
+REPORTING ROLE: Composite-only member of the five-seed experiment; other outputs are archived. Primary experiment results use seed 42.
+
+CONTRIBUTION: Retrieved context should reduce predictive uncertainty for faithful tokens — when it fails to do so, measured as Information Gain and KL Divergence between context-free and context-conditioned token distributions, that failure signal begins rising before hallucination onset and reaches peak separability at the hallucinated token (t−1 to t=0).
+
+METHOD: Purely unsupervised CAWC v5.
+No LogisticRegression. No supervised classifiers.
+Directions from theory. Weights fixed a priori.
+
+KEY RESULTS:
+  Entropy baseline AUROC:     0.6072
+  CAWC v5 composite AUROC:    0.7513
+  HaluEval zero-shot:         0.6556
+  Temporal: composite global peak at t+1, pre-onset at t-1
+
+EXPERIMENT TABLE:
+  Baseline 1: Token Entropy                AUROC=0.6072 CI=[0.5909,0.6241]
+  Baseline 2: SelfCheckGPT-NLI (Manakul 2023) AUROC=0.6098 CI=[0.5943,0.6259]
+  +IG (entropy+selfcheck+ig)               AUROC=0.6915 CI=[0.6780,0.7047]
+  +KL (entropy+selfcheck+ig+kl)            AUROC=0.7337 CI=[0.7181,0.7493]
+  +CD (entropy+selfcheck+ig+kl+cd)         AUROC=0.7418 CI=[0.7257,0.7575]
+  +SE (DeBERTa NLI clustering)             AUROC=0.7418 CI=[0.7257,0.7575]
+  CAWC v5 Composite (unsupervised)         AUROC=0.7513 CI=[0.7328,0.7693]
+  Individual: entropy                      AUROC=0.6072 CI=[0.5909,0.6241]
+  Individual: ig                           AUROC=0.7180 CI=[0.7010,0.7354]
+  Individual: kl                           AUROC=0.6719 CI=[0.6502,0.6935]
+  Individual: cd                           AUROC=0.7267 CI=[0.7112,0.7419]
+  Individual: selfcheck                    AUROC=0.6098 CI=[0.5943,0.6259]
+  Individual: se                           AUROC=0.5000 CI=[0.5000,0.5000]
+
+UNSUPERVISED VERIFICATION:
+  ✓ No sklearn classifiers used for composite
+  ✓ Directions from theoretical justification
+  ✓ Normalization from train metric values (no labels)
+  ✓ Weights fixed from theory (not optimized on data)
+  ✓ Test labels NEVER used for any parameter

@@ -1,0 +1,23 @@
+[
+  {
+    "sample_idx": 2530,
+    "pos": 31,
+    "token": "Ġinches",
+    "composite": 0.24201949004703807,
+    "generator": "llama-2-13b-chat"
+  },
+  {
+    "sample_idx": 218,
+    "pos": 32,
+    "token": "ĠPetty",
+    "composite": 0.24399025907020672,
+    "generator": "mistral-7B-instruct"
+  },
+  {
+    "sample_idx": 2529,
+    "pos": 34,
+    "token": "Ġinches",
+    "composite": 0.2484530494444295,
+    "generator": "llama-2-7b-chat"
+  }
+]

@@ -1,0 +1,3 @@
+Method,AUROC,Type
+CAWC v5 composite,0.7519,Measured composite
+Token entropy,0.6072,Measured baseline

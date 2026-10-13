@@ -1,0 +1,86 @@
+2026-04-10 06:16:52,697 [INFO] ======================================================================
+2026-04-10 06:16:52,697 [INFO] CAWC — UNSUPERVISED CAWC v5 PIPELINE
+2026-04-10 06:16:52,697 [INFO] ======================================================================
+2026-04-10 06:16:52,697 [INFO] ZERO supervised components. All parameters from theory.
+2026-04-10 06:16:52,697 [INFO] Loading cached data...
+2026-04-10 06:16:54,144 [INFO]   Train: 2000 samples
+2026-04-10 06:16:54,144 [INFO]   Test:  2700 samples
+2026-04-10 06:16:54,144 [INFO]   Halu:  10000 samples
+2026-04-10 06:16:54,144 [INFO] Computing train population statistics (unsupervised)...
+2026-04-10 06:16:54,205 [INFO]   entropy: mean=1.0038 std=1.0472 n=317967
+2026-04-10 06:16:54,212 [INFO]   ig: mean=-0.8666 std=1.0633 n=317967
+2026-04-10 06:16:54,221 [INFO]   kl: mean=-0.9200 std=1.3809 n=317967
+2026-04-10 06:16:54,227 [INFO]   cd: mean=-0.1974 std=0.2997 n=317967
+2026-04-10 06:16:54,236 [INFO]   selfcheck: mean=0.9114 std=0.1751 n=317967
+2026-04-10 06:16:54,243 [INFO]   se: mean=1.6777 std=0.2988 n=317967
+2026-04-10 06:16:54,246 [INFO] Processing test set with unsupervised composite...
+2026-04-10 06:17:59,240 [INFO]   Processed 2700 test samples
+2026-04-10 06:17:59,240 [INFO] Processing HaluEval with unsupervised composite...
+2026-04-10 06:19:32,000 [INFO]   Processed 10000 halueval samples
+2026-04-10 06:19:32,000 [INFO] ======================================== RUNNING EXPERIMENTS ========================================
+2026-04-10 06:19:32,003 [INFO] ============================================================
+2026-04-10 06:19:32,003 [INFO] EXPERIMENTS 1 & 2: Incremental Composite AUROC
+2026-04-10 06:19:32,003 [INFO] ============================================================
+2026-04-10 06:21:09,457 [INFO]   Baseline 1: Token Entropy                AUROC=0.5614 CI=[0.5578,0.5652]
+2026-04-10 06:22:28,128 [INFO]   Baseline 2: SelfCheckGPT-NLI (Manakul 2023) AUROC=0.5466 CI=[0.5432,0.5501]
+2026-04-10 06:24:27,206 [INFO]   +IG (entropy+selfcheck+ig)               AUROC=0.6372 CI=[0.6338,0.6405]
+2026-04-10 06:26:34,926 [INFO]   +KL (entropy+selfcheck+ig+kl)            AUROC=0.6880 CI=[0.6847,0.6914]
+2026-04-10 06:28:27,114 [INFO]   +CD (entropy+selfcheck+ig+kl+cd)         AUROC=0.7054 CI=[0.7023,0.7089]
+2026-04-10 06:30:16,776 [INFO]   +SE (DeBERTa NLI clustering)             AUROC=0.6965 CI=[0.6932,0.7000]
+2026-04-10 06:31:55,690 [INFO]   CAWC v5 Composite (unsupervised)         AUROC=0.7324 CI=[0.7292,0.7358]
+2026-04-10 06:31:55,715 [INFO] ============================================================
+2026-04-10 06:31:55,719 [INFO] EXPERIMENT 3: Temporal Precedence
+2026-04-10 06:31:55,719 [INFO] ============================================================
+2026-04-10 06:31:55,944 [INFO]   Peak pre-onset: t-3 (KL at t-3, composite at t-1)
+2026-04-10 06:31:55,944 [INFO] ============================================================
+2026-04-10 06:31:55,944 [INFO] EXPERIMENT 4: Cross-Domain Transfer (HaluEval)
+2026-04-10 06:31:55,944 [INFO] ============================================================
+2026-04-10 06:36:46,190 [INFO]   composite       RAG=0.7324 Halu=0.6500 Drop=+0.0824
+2026-04-10 06:41:34,807 [INFO]   ig              RAG=0.6866 Halu=0.6181 Drop=+0.0686
+2026-04-10 06:46:24,583 [INFO]   kl              RAG=0.6791 Halu=0.5810 Drop=+0.0981
+2026-04-10 06:51:13,872 [INFO]   entropy         RAG=0.5614 Halu=0.5850 Drop=-0.0236
+2026-04-10 06:55:43,726 [INFO]   selfcheck       RAG=0.5466 Halu=0.5987 Drop=-0.0520
+2026-04-10 06:57:50,752 [INFO]   se              RAG=0.5158 Halu=0.5000 Drop=+0.0158
+2026-04-10 06:57:50,760 [INFO] ============================================================
+2026-04-10 06:57:50,760 [INFO] EXPERIMENT 5: Hallucination Type Breakdown
+2026-04-10 06:57:50,760 [INFO] ============================================================
+2026-04-10 06:59:24,705 [INFO]   contradictory: n=6101 AUROC=0.6103 best=composite(0.6103)
+2026-04-10 07:00:56,905 [INFO]   unsupported: n=2004 AUROC=0.8371 best=composite(0.8371)
+2026-04-10 07:02:31,190 [INFO]   fabricated: n=10461 AUROC=0.7836 best=composite(0.7836)
+2026-04-10 07:02:31,197 [INFO]   AUROC gap: 0.2268 (ACHIEVED ✓)
+2026-04-10 07:02:31,200 [INFO] ============================================================
+2026-04-10 07:02:31,200 [INFO] EXPERIMENT 6: Generator Breakdown
+2026-04-10 07:02:31,200 [INFO] ============================================================
+2026-04-10 07:02:31,349 [INFO]   gpt-3.5-turbo-0613        AUROC=0.7183 best=composite(0.7183)
+2026-04-10 07:02:31,422 [INFO]   gpt-4-0613                AUROC=0.6469 best=composite(0.6469)
+2026-04-10 07:02:31,512 [INFO]   llama-2-13b-chat          AUROC=0.6992 best=composite(0.6992)
+2026-04-10 07:02:31,594 [INFO]   llama-2-70b-chat          AUROC=0.7493 best=composite(0.7493)
+2026-04-10 07:02:31,676 [INFO]   llama-2-7b-chat           AUROC=0.6876 best=composite(0.6876)
+2026-04-10 07:02:31,756 [INFO]   mistral-7B-instruct       AUROC=0.7113 best=composite(0.7113)
+2026-04-10 07:02:31,795 [INFO] ============================================================
+2026-04-10 07:02:31,799 [INFO] EXPERIMENT 7: Failure Case Analysis
+2026-04-10 07:02:31,799 [INFO] ============================================================
+2026-04-10 07:02:31,847 [INFO]   3 failure cases documented
+2026-04-10 07:02:31,849 [INFO] ============================================================
+2026-04-10 07:02:31,849 [INFO] ============================================================
+2026-04-10 07:02:31,855 [INFO] ======================================================================
+2026-04-10 07:02:31,855 [INFO] FINAL CHECKLIST
+2026-04-10 07:02:31,855 [INFO] ======================================================================
+2026-04-10 07:02:31,856 [INFO]   [✓] UNSUPERVISED: No sklearn classifiers
+2026-04-10 07:02:31,856 [INFO]   [✓] Directions from theory (not data)
+2026-04-10 07:02:31,856 [INFO]   [✓] Train labels NOT used for composite
+2026-04-10 07:02:31,856 [INFO]   [✓] Composite AUROC: 0.7324
+2026-04-10 07:02:31,856 [INFO]   [✗] Composite >= 0.75: 0.7324
+2026-04-10 07:02:31,856 [INFO]   [✓] Both baselines beaten
+2026-04-10 07:02:31,856 [INFO]   [✓] Bootstrap CI reported
+2026-04-10 07:02:31,856 [INFO]   [✓] Temporal plot saved
+2026-04-10 07:02:31,856 [INFO]   [✓] Temporal peak: t-3
+2026-04-10 07:02:31,856 [INFO]   [✓] HaluEval zero-shot: 0.6500
+2026-04-10 07:02:31,857 [INFO]   [✓] Type breakdown done
+2026-04-10 07:02:31,857 [INFO]   [✓] Failure cases documented
+2026-04-10 07:02:31,857 [INFO]   [✓] Demo pipeline created
+2026-04-10 07:02:31,857 [INFO] 
+2026-04-10 07:02:31,857 [INFO] FINAL COMPOSITE AUROC: 0.7324
+2026-04-10 07:02:31,857 [INFO] HALUEVAL ZERO-SHOT: 0.6500
+2026-04-10 07:02:31,857 [INFO] TOTAL TIME: 2739.2 seconds
+2026-04-10 07:02:31,857 [INFO] SOME CHECKS FAILED — see above

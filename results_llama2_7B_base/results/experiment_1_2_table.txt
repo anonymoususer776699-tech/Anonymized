@@ -1,0 +1,14 @@
+                                     Method  AUROC  CI_low  CI_high     F1  Spearman_rho    ECE
+                  Baseline 1: Token Entropy 0.5457  0.5325   0.5587 0.0862        0.0314 0.4437
+Baseline 2: SelfCheckGPT-NLI (Manakul 2023) 0.5559  0.5435   0.5675 0.0874        0.0384 0.4463
+                 +IG (entropy+selfcheck+ig) 0.6485  0.6342   0.6623 0.1121        0.1019 0.4313
+              +KL (entropy+selfcheck+ig+kl) 0.7076  0.6897   0.7234 0.1423        0.1425 0.4951
+           +CD (entropy+selfcheck+ig+kl+cd) 0.7167  0.6978   0.7332 0.1487        0.1488 0.5063
+               +SE (DeBERTa NLI clustering) 0.6871  0.6656   0.7065 0.1440        0.1285 0.5705
+           CAWC v5 Composite (unsupervised) 0.7384  0.7178   0.7565 0.1773        0.1637 0.5523
+                        Individual: entropy 0.5457  0.5325   0.5587 0.0862        0.0314 0.4437
+                             Individual: ig 0.7128  0.6950   0.7292 0.1535        0.1461 0.4519
+                             Individual: kl 0.6927  0.6724   0.7096 0.1591        0.1323 0.4568
+                             Individual: cd 0.6977  0.6797   0.7131 0.1448        0.1358 0.4602
+                      Individual: selfcheck 0.5559  0.5435   0.5675 0.0874        0.0384 0.4463
+                             Individual: se 0.4957  0.4772   0.5108 0.0775       -0.0052 0.8488

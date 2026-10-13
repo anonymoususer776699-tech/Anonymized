@@ -1,0 +1,36 @@
+FULL RESULTS SUMMARY — CAWC (UNSUPERVISED)
+============================================================
+
+CONTRIBUTION: Retrieved context should reduce predictive uncertainty for faithful tokens — when it fails to do so, measured as Information Gain and KL Divergence between context-free and context-conditioned token distributions, that failure signal begins rising before hallucination onset and reaches peak separability at the hallucinated token (t−1 to t=0).
+
+METHOD: Purely unsupervised CAWC v5.
+No LogisticRegression. No supervised classifiers.
+Directions from theory. Weights fixed a priori.
+
+KEY RESULTS:
+  Entropy baseline AUROC:     0.5457
+  CAWC v5 composite AUROC:    0.7384
+  HaluEval zero-shot:         0.6462
+  Temporal: composite global peak at t+1, pre-onset at t-1
+
+EXPERIMENT TABLE:
+  Baseline 1: Token Entropy                AUROC=0.5457 CI=[0.5325,0.5587]
+  Baseline 2: SelfCheckGPT-NLI (Manakul 2023) AUROC=0.5559 CI=[0.5435,0.5675]
+  +IG (entropy+selfcheck+ig)               AUROC=0.6485 CI=[0.6342,0.6623]
+  +KL (entropy+selfcheck+ig+kl)            AUROC=0.7076 CI=[0.6897,0.7234]
+  +CD (entropy+selfcheck+ig+kl+cd)         AUROC=0.7167 CI=[0.6978,0.7332]
+  +SE (DeBERTa NLI clustering)             AUROC=0.6871 CI=[0.6656,0.7065]
+  CAWC v5 Composite (unsupervised)         AUROC=0.7384 CI=[0.7178,0.7565]
+  Individual: entropy                      AUROC=0.5457 CI=[0.5325,0.5587]
+  Individual: ig                           AUROC=0.7128 CI=[0.6950,0.7292]
+  Individual: kl                           AUROC=0.6927 CI=[0.6724,0.7096]
+  Individual: cd                           AUROC=0.6977 CI=[0.6797,0.7131]
+  Individual: selfcheck                    AUROC=0.5559 CI=[0.5435,0.5675]
+  Individual: se                           AUROC=0.4957 CI=[0.4772,0.5108]
+
+UNSUPERVISED VERIFICATION:
+  ✓ No sklearn classifiers used for composite
+  ✓ Directions from theoretical justification
+  ✓ Normalization from train metric values (no labels)
+  ✓ Weights fixed from theory (not optimized on data)
+  ✓ Test labels NEVER used for any parameter

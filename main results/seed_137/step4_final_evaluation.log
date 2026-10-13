@@ -1,0 +1,677 @@
+2026-06-24 01:44:36,436 [INFO] ======================================================================
+2026-06-24 01:44:36,436 [INFO] CAWC — UNSUPERVISED CAWC v5 PIPELINE
+2026-06-24 01:44:36,436 [INFO]   seed=137  results_dir=C:\anonymous\project\results\seed_137
+2026-06-24 01:44:36,436 [INFO] ======================================================================
+2026-06-24 01:44:36,436 [INFO] ZERO supervised components. All parameters from theory.
+2026-06-24 01:44:36,436 [INFO] Loading cached data...
+2026-06-24 01:44:40,846 [INFO]   Train: 15089 samples
+2026-06-24 01:44:40,846 [INFO]   Test:  2700 samples
+2026-06-24 01:44:40,846 [INFO]   Halu:  10000 samples
+2026-06-24 01:44:40,846 [INFO] Computing train population statistics (unsupervised)...
+2026-06-24 01:44:41,449 [INFO]   entropy: mean=0.9028 std=0.9058 n=2431092
+2026-06-24 01:44:41,491 [INFO]   ig: mean=-0.8099 std=1.1674 n=2431092
+2026-06-24 01:44:41,526 [INFO]   kl: mean=-0.9698 std=1.5482 n=2431092
+2026-06-24 01:44:41,581 [INFO]   cd: mean=-0.1872 std=0.3171 n=2431092
+2026-06-24 01:44:41,616 [INFO]   selfcheck: mean=0.3454 std=0.3547 n=2431092
+2026-06-24 01:44:41,644 [INFO]   se: mean=nan std=nan n=2431092
+2026-06-24 01:44:41,671 [INFO]   Computing variance-based weights from train distribution...
+2026-06-24 01:44:42,762 [INFO]     entropy: std=0.9058
+2026-06-24 01:44:42,837 [INFO]     ig: std=1.1674
+2026-06-24 01:44:42,901 [INFO]     kl: std=1.5482
+2026-06-24 01:44:42,970 [INFO]     cd: std=0.3171
+2026-06-24 01:44:43,046 [INFO]     selfcheck: std=0.3547
+2026-06-24 01:44:43,046 [INFO]     se: std=0.0000
+2026-06-24 01:44:43,046 [INFO]   Variance-based weights (unsupervised):
+2026-06-24 01:44:43,046 [INFO]     entropy: 0.2089
+2026-06-24 01:44:43,046 [INFO]     ig: 0.2692
+2026-06-24 01:44:43,046 [INFO]     kl: 0.3570
+2026-06-24 01:44:43,046 [INFO]     cd: 0.0732
+2026-06-24 01:44:43,046 [INFO]     selfcheck: 0.0818
+2026-06-24 01:44:43,046 [INFO]     se: 0.0099
+2026-06-24 01:44:43,116 [INFO] Processing test set with unsupervised composite...
+2026-06-24 01:45:01,060 [INFO]   Processed 2700 test samples
+2026-06-24 01:45:01,060 [INFO] Processing HaluEval with unsupervised composite...
+2026-06-24 01:45:41,962 [INFO]   Processed 10000 halueval samples
+2026-06-24 01:45:41,962 [INFO] ======================================== RUNNING EXPERIMENTS ========================================
+2026-06-24 01:45:41,962 [INFO] ============================================================
+2026-06-24 01:45:41,962 [INFO] EXPERIMENTS 1 & 2: Incremental Composite AUROC
+2026-06-24 01:45:41,962 [INFO] ============================================================
+2026-06-24 01:46:40,474 [INFO]   Baseline 1: Token Entropy                AUROC=0.6072 CI=[0.5921,0.6240]
+2026-06-24 01:47:38,509 [INFO]   Baseline 2: SelfCheckGPT-NLI (Manakul 2023) AUROC=0.6098 CI=[0.5944,0.6261]
+2026-06-24 01:48:36,496 [INFO]   +IG (entropy+selfcheck+ig)               AUROC=0.6915 CI=[0.6779,0.7051]
+2026-06-24 01:49:35,070 [INFO]   +KL (entropy+selfcheck+ig+kl)            AUROC=0.7338 CI=[0.7173,0.7484]
+2026-06-24 01:50:33,846 [INFO]   +CD (entropy+selfcheck+ig+kl+cd)         AUROC=0.7418 CI=[0.7249,0.7566]
+2026-06-24 01:51:32,131 [INFO]   +SE (DeBERTa NLI clustering)             AUROC=0.7418 CI=[0.7249,0.7566]
+2026-06-24 01:52:29,717 [INFO]   CAWC v5 Composite (unsupervised)         AUROC=0.7513 CI=[0.7321,0.7682]
+2026-06-24 01:52:29,717 [INFO]   --- Individual Metric AUROCs (same normalization) ---
+2026-06-24 01:53:28,859 [INFO]   Individual: entropy                      AUROC=0.6072 CI=[0.5921,0.6240]
+2026-06-24 01:54:27,734 [INFO]   Individual: ig                           AUROC=0.7181 CI=[0.7004,0.7339]
+2026-06-24 01:55:26,131 [INFO]   Individual: kl                           AUROC=0.6719 CI=[0.6497,0.6918]
+2026-06-24 01:56:24,411 [INFO]   Individual: cd                           AUROC=0.7268 CI=[0.7112,0.7412]
+2026-06-24 01:57:23,662 [INFO]   Individual: selfcheck                    AUROC=0.6098 CI=[0.5944,0.6261]
+C:\anonymous\project\run_final_unsupervised.py:165: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  rho = spearmanr(scores[mask], labels[mask])[0] if mask.sum() > 10 else 0.0
+2026-06-24 01:57:52,568 [INFO]   Individual: se                           AUROC=0.5000 CI=[0.5000,0.5000]
+2026-06-24 01:57:52,568 [INFO]   --- Composite Superiority Check ---
+2026-06-24 01:57:52,568 [INFO]   CAWC v5 Composite:           0.7513
+2026-06-24 01:57:52,568 [INFO]   Best individual (Individual: cd): 0.7268
+2026-06-24 01:57:52,568 [INFO]   Composite vs best individual: +0.0245
+2026-06-24 01:57:52,568 [INFO]   COMPOSITE SUPERIOR TO BEST INDIVIDUAL: YES
+2026-06-24 01:57:52,581 [INFO] ============================================================
+2026-06-24 01:57:52,581 [INFO] EXPERIMENT 3: Temporal Precedence (raw unsmoothed values)
+2026-06-24 01:57:52,581 [INFO] ============================================================
+2026-06-24 01:57:52,594 [INFO]   Raw temporal deltas (unsmoothed directed values):
+2026-06-24 01:57:52,594 [INFO]     composite: t-3=0.7528 t-2=0.7627 t-1=0.7740 t=0=0.7840 t+1=0.7938  delta(t-1)=+0.0212 delta(t=0)=+0.0312 delta(t+1)=+0.0410
+2026-06-24 01:57:52,594 [INFO]     ig: t-3=-0.7635 t-2=-0.6405 t-1=-0.4163 t=0=-0.5925 t+1=-0.4661  delta(t-1)=+0.3472 delta(t=0)=+0.1710 delta(t+1)=+0.2974
+2026-06-24 01:57:52,594 [INFO]     kl: t-3=-0.9332 t-2=-0.8137 t-1=-0.5083 t=0=-1.0525 t+1=-0.8592  delta(t-1)=+0.4249 delta(t=0)=-0.1194 delta(t+1)=+0.0740
+2026-06-24 01:57:52,594 [INFO]     entropy: t-3=1.0016 t-2=0.9352 t-1=1.0482 t=0=1.8644 t+1=1.4435  delta(t-1)=+0.0465 delta(t=0)=+0.8627 delta(t+1)=+0.4419
+2026-06-24 01:57:52,594 [INFO]     cd: t-3=-0.1713 t-2=-0.1520 t-1=-0.0711 t=0=-0.0517 t+1=-0.0483  delta(t-1)=+0.1001 delta(t=0)=+0.1195 delta(t+1)=+0.1230
+2026-06-24 01:57:52,594 [INFO]     se: t-3=nan t-2=nan t-1=nan t=0=nan t+1=nan  delta(t-1)=+nan delta(t=0)=+nan delta(t+1)=+nan
+2026-06-24 01:57:52,971 [INFO]   Composite global peak: t+1, pre-onset: t-1 (IG global: t-1, KL global: t-1)
+2026-06-24 01:57:52,971 [INFO] ============================================================
+2026-06-24 01:57:52,971 [INFO] EXPERIMENT 4: Cross-Domain Transfer (HaluEval)
+2026-06-24 01:57:52,971 [INFO] ============================================================
+2026-06-24 02:01:40,255 [INFO]   composite       RAG=0.7513 Halu=0.6556 Drop=+0.0957
+2026-06-24 02:05:27,017 [INFO]   ig              RAG=0.7181 Halu=0.6334 Drop=+0.0846
+2026-06-24 02:09:14,760 [INFO]   kl              RAG=0.6719 Halu=0.5729 Drop=+0.0990
+2026-06-24 02:13:02,237 [INFO]   entropy         RAG=0.6072 Halu=0.6123 Drop=-0.0051
+2026-06-24 02:16:49,047 [INFO]   selfcheck       RAG=0.6098 Halu=0.6105 Drop=-0.0007
+2026-06-24 02:18:15,021 [INFO]   se              RAG=0.5000 Halu=0.5000 Drop=+0.0000
+2026-06-24 02:18:15,024 [INFO] ============================================================
+2026-06-24 02:18:15,024 [INFO] EXPERIMENT 5: Hallucination Type Breakdown
+2026-06-24 02:18:15,024 [INFO] ============================================================
+2026-06-24 02:19:29,198 [INFO]   contradictory: n=5692 AUROC=0.6472 best=composite(0.6472)
+2026-06-24 02:20:42,783 [INFO]   unsupported: n=1877 AUROC=0.8259 best=composite(0.8259)
+2026-06-24 02:21:58,624 [INFO]   fabricated: n=9834 AUROC=0.7974 best=composite(0.7974)
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 61: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2169, in main
+    run_e5(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1168, in run_e5
+    log.info(f"  AUROC gap: {gap:.4f} ({'ACHIEVED \u2713' if gap > 0.10 else 'below 0.10'})")
+Message: '  AUROC gap: 0.1787 (ACHIEVED \u2713)'
+Arguments: ()
+2026-06-24 02:21:58,694 [INFO] ============================================================
+2026-06-24 02:21:58,694 [INFO] EXPERIMENT 6: Generator Breakdown
+2026-06-24 02:21:58,694 [INFO] ============================================================
+2026-06-24 02:21:58,818 [INFO]   gpt-3.5-turbo-0613        AUROC=0.7225 best=kl(0.7232)
+2026-06-24 02:21:58,873 [INFO]   gpt-4-0613                AUROC=0.6856 best=composite(0.6856)
+2026-06-24 02:21:58,943 [INFO]   llama-2-13b-chat          AUROC=0.7214 best=composite(0.7214)
+2026-06-24 02:21:59,005 [INFO]   llama-2-70b-chat          AUROC=0.7647 best=composite(0.7647)
+2026-06-24 02:21:59,075 [INFO]   llama-2-7b-chat           AUROC=0.6916 best=composite(0.6916)
+2026-06-24 02:21:59,130 [INFO]   mistral-7B-instruct       AUROC=0.7326 best=composite(0.7326)
+2026-06-24 02:21:59,165 [INFO] ============================================================
+2026-06-24 02:21:59,165 [INFO] EXPERIMENT 7: Failure Case Analysis
+2026-06-24 02:21:59,165 [INFO] ============================================================
+2026-06-24 02:21:59,213 [INFO]   3 failure cases documented
+2026-06-24 02:21:59,214 [INFO] ============================================================
+2026-06-24 02:21:59,214 [INFO] ============================================================
+2026-06-24 02:21:59,217 [INFO] ============================================================
+2026-06-24 02:21:59,217 [INFO] WEIGHT SENSITIVITY ANALYSIS
+2026-06-24 02:21:59,217 [INFO] ============================================================
+2026-06-24 02:21:59,286 [INFO]   CAWC v5 baseline: 0.7513
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 59: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1432, in run_weight_ablation
+    log.info(f"  Equal weights:    {eq_auroc:.4f} (\u0394={eq_auroc - base_auroc:+.4f})")
+Message: '  Equal weights:    0.7418 (\u0394=-0.0095)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 67: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1450, in run_weight_ablation
+    log.info(f"  Random weights:   {rand_mean:.4f} ±{rand_std:.4f} (\u0394={rand_mean - base_auroc:+.4f})")
+Message: '  Random weights:   0.7187 ±0.0267 (\u0394=-0.0326)'
+Arguments: ()
+2026-06-24 02:22:06,261 [INFO]   --- Leave-One-Metric-Out ---
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1462, in run_weight_ablation
+    log.info(f"    Remove {mk_remove:<12}: {lo_auroc:.4f} (\u0394={delta:+.4f})")
+Message: '    Remove entropy     : 0.7442 (\u0394=-0.0071)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1462, in run_weight_ablation
+    log.info(f"    Remove {mk_remove:<12}: {lo_auroc:.4f} (\u0394={delta:+.4f})")
+Message: '    Remove ig          : 0.7271 (\u0394=-0.0243)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1462, in run_weight_ablation
+    log.info(f"    Remove {mk_remove:<12}: {lo_auroc:.4f} (\u0394={delta:+.4f})")
+Message: '    Remove kl          : 0.7182 (\u0394=-0.0331)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1462, in run_weight_ablation
+    log.info(f"    Remove {mk_remove:<12}: {lo_auroc:.4f} (\u0394={delta:+.4f})")
+Message: '    Remove cd          : 0.7338 (\u0394=-0.0176)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1462, in run_weight_ablation
+    log.info(f"    Remove {mk_remove:<12}: {lo_auroc:.4f} (\u0394={delta:+.4f})")
+Message: '    Remove selfcheck   : 0.7444 (\u0394=-0.0069)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1462, in run_weight_ablation
+    log.info(f"    Remove {mk_remove:<12}: {lo_auroc:.4f} (\u0394={delta:+.4f})")
+Message: '    Remove se          : 0.7418 (\u0394=-0.0095)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 67: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2175, in main
+    run_weight_ablation(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1481, in run_weight_ablation
+    log.info(f"  ±20% perturb:     {pert_mean:.4f} ±{pert_std:.4f} (\u0394={pert_mean - base_auroc:+.4f})")
+Message: '  ±20% perturb:     0.7411 ±0.0016 (\u0394=-0.0102)'
+Arguments: ()
+2026-06-24 02:22:13,872 [INFO]   Weight ablation complete. Saved to experiment_weight_ablation.csv
+2026-06-24 02:22:13,872 [INFO] ============================================================
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2248' in position 54: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2176, in main
+    measure_boundary_condition(test_results)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1546, in measure_boundary_condition
+    log.info("BOUNDARY CONDITION: Pc \u2248 P0 Analysis")
+Message: 'BOUNDARY CONDITION: Pc \u2248 P0 Analysis'
+Arguments: ()
+2026-06-24 02:22:13,872 [INFO] ============================================================
+2026-06-24 02:22:14,024 [INFO]   Collapse prevalence: 14.1% of tokens
+2026-06-24 02:22:14,024 [INFO]   AUROC active: 0.7383, collapse: 0.7281, overall: 0.7513
+2026-06-24 02:22:14,024 [INFO]   Boundary condition analysis saved.
+2026-06-24 02:22:14,024 [INFO] ============================================================
+2026-06-24 02:22:14,024 [INFO] EXPERIMENT 9: Timestep AUROC Sweep
+2026-06-24 02:22:14,024 [INFO] ============================================================
+2026-06-24 02:22:21,940 [INFO]   composite   : peak AUROC at t+2 = 0.7581
+2026-06-24 02:22:21,940 [INFO]   ig          : peak AUROC at t+2 = 0.7253
+2026-06-24 02:22:21,940 [INFO]   kl          : peak AUROC at t+2 = 0.6842
+2026-06-24 02:22:21,940 [INFO]   cd          : peak AUROC at t+1 = 0.7286
+2026-06-24 02:22:21,940 [INFO]   entropy     : peak AUROC at t-1 = 0.6075
+2026-06-24 02:22:21,940 [INFO]   selfcheck   : peak AUROC at t+0 = 0.6098
+2026-06-24 02:22:21,944 [INFO] ============================================================
+2026-06-24 02:22:21,944 [INFO] EXPERIMENT 10: Composite Variants
+2026-06-24 02:22:21,944 [INFO] ============================================================
+2026-06-24 02:22:36,667 [INFO]   CAWC v5 (current):     0.7513
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2180, in main
+    run_composite_variants(test_raw, train_stats)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1826, in run_composite_variants
+    log.info(f"  Static weights:        {auroc_static:.4f} (\u0394={auroc_static - auroc_v5:+.4f})")
+Message: '  Static weights:        0.7513 (\u0394=+0.0000)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2180, in main
+    run_composite_variants(test_raw, train_stats)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1863, in run_composite_variants
+    log.info(f"  Simple (no extras):    {auroc_simple:.4f} (\u0394={auroc_simple - auroc_v5:+.4f})")
+Message: '  Simple (no extras):    0.7416 (\u0394=-0.0097)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2180, in main
+    run_composite_variants(test_raw, train_stats)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1888, in run_composite_variants
+    log.info(f"  Higher selfcheck:      {auroc_hsc:.4f} (\u0394={auroc_hsc - auroc_v5:+.4f})")
+Message: '  Higher selfcheck:      0.7446 (\u0394=-0.0067)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2180, in main
+    run_composite_variants(test_raw, train_stats)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1913, in run_composite_variants
+    log.info(f"  No SE:                 {auroc_nose:.4f} (\u0394={auroc_nose - auroc_v5:+.4f})")
+Message: '  No SE:                 0.7430 (\u0394=-0.0083)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 63: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2180, in main
+    run_composite_variants(test_raw, train_stats)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1934, in run_composite_variants
+    log.info(f"  Top-3 (IG+KL+CD):     {auroc_top3:.4f} (\u0394={auroc_top3 - auroc_v5:+.4f})")
+Message: '  Top-3 (IG+KL+CD):     0.7270 (\u0394=-0.0243)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u0394' in position 64: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2180, in main
+    run_composite_variants(test_raw, train_stats)
+  File "C:\anonymous\project\run_final_unsupervised.py", line 1951, in run_composite_variants
+    log.info(f"  IG-only:               {auroc_ig:.4f} (\u0394={auroc_ig - auroc_v5:+.4f})")
+Message: '  IG-only:               0.7181 (\u0394=-0.0333)'
+Arguments: ()
+2026-06-24 02:23:07,441 [INFO]   Best variant: CAWC v5 (current) (0.7513)
+2026-06-24 02:23:07,457 [INFO]   Demo data saved (76 tokens, 61 hallucinated)
+2026-06-24 02:23:07,457 [INFO]   Demo pipeline written to demo_pipeline.py
+2026-06-24 02:23:07,457 [INFO] ======================================================================
+2026-06-24 02:23:07,457 [INFO] FINAL CHECKLIST
+2026-06-24 02:23:07,457 [INFO] ======================================================================
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] UNSUPERVISED: No sklearn classifiers'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Directions from theory (not data)'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Train labels NOT used for composite'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Composite AUROC: 0.7513'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Composite >= 0.75: 0.7513'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Both baselines beaten'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Bootstrap CI reported'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Temporal plot saved'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Temporal: composite global peak t+1, pre-onset t-1'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] HaluEval zero-shot: 0.6556'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Weight ablation completed'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Boundary condition analysis completed'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Type breakdown done'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Failure cases documented'
+Arguments: ()
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 34: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2211, in main
+    log.info(f"  [{icon}] {desc}")
+Message: '  [\u2713] Demo pipeline created'
+Arguments: ()
+2026-06-24 02:23:07,465 [INFO] 
+2026-06-24 02:23:07,465 [INFO] FINAL COMPOSITE AUROC: 0.7513
+2026-06-24 02:23:07,465 [INFO] HALUEVAL ZERO-SHOT: 0.6556
+2026-06-24 02:23:07,465 [INFO] TOTAL TIME: 2311.0 seconds
+--- Logging error ---
+Traceback (most recent call last):
+  File "C:\anonymous\python\Python311\Lib\logging\__init__.py", line 1113, in emit
+    stream.write(msg + self.terminator)
+  File "C:\anonymous\python\Python311\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 49: character maps to <undefined>
+Call stack:
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2226, in <module>
+    main()
+  File "C:\anonymous\project\run_final_unsupervised.py", line 2218, in main
+    log.info("ALL CHECKS PASSED \u2713" if all_pass else "SOME CHECKS FAILED \u2014 see above")
+Message: 'ALL CHECKS PASSED \u2713'
+Arguments: ()

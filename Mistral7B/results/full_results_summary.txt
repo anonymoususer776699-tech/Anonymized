@@ -1,0 +1,30 @@
+FULL RESULTS SUMMARY — CAWC (UNSUPERVISED)
+============================================================
+
+CONTRIBUTION: Retrieved context should reduce predictive uncertainty for faithful tokens — when it fails to do so, measured as Information Gain and KL Divergence between context-free and context-conditioned token distributions, that failure is detectable before hallucination onset.
+
+METHOD: Purely unsupervised CAWC v5.
+No LogisticRegression. No supervised classifiers.
+Directions from theory. Weights fixed a priori.
+
+KEY RESULTS:
+  Entropy baseline AUROC:     0.5614
+  CAWC v5 composite AUROC:    0.7324
+  HaluEval zero-shot:         0.6500
+  Temporal peak pre-onset:    t-3
+
+EXPERIMENT TABLE:
+  Baseline 1: Token Entropy                AUROC=0.5614 CI=[0.5578,0.5652]
+  Baseline 2: SelfCheckGPT-NLI (Manakul 2023) AUROC=0.5466 CI=[0.5432,0.5501]
+  +IG (entropy+selfcheck+ig)               AUROC=0.6372 CI=[0.6338,0.6405]
+  +KL (entropy+selfcheck+ig+kl)            AUROC=0.6880 CI=[0.6847,0.6914]
+  +CD (entropy+selfcheck+ig+kl+cd)         AUROC=0.7054 CI=[0.7023,0.7089]
+  +SE (DeBERTa NLI clustering)             AUROC=0.6965 CI=[0.6932,0.7000]
+  CAWC v5 Composite (unsupervised)         AUROC=0.7324 CI=[0.7292,0.7358]
+
+UNSUPERVISED VERIFICATION:
+  ✓ No sklearn classifiers used for composite
+  ✓ Directions from theoretical justification
+  ✓ Normalization from train metric values (no labels)
+  ✓ Weights fixed from theory (not optimized on data)
+  ✓ Test labels NEVER used for any parameter

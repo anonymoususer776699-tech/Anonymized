@@ -1,0 +1,18 @@
+EXPERIMENT 9: TIMESTEP AUROC SWEEP
+==================================================
+
+For each hallucinated token at position t, the composite/metric score
+at position t+offset is used to predict the label at t.
+AUROC at offset=0 means 'score at the hallucinated token itself'.
+AUROC at offset=-1 means 'score one token BEFORE the hallucination'.
+
+  composite   : peak at t+2 (0.7539), t-1=0.7408, t=0=0.7470
+  ig          : peak at t+2 (0.7253), t-1=0.7113, t=0=0.7180
+  kl          : peak at t+2 (0.6842), t-1=0.6645, t=0=0.6718
+  cd          : peak at t+1 (0.7285), t-1=0.7222, t=0=0.7267
+  entropy     : peak at t-1 (0.6075), t-1=0.6075, t=0=0.6073
+  selfcheck   : peak at t+2 (0.5450), t-1=0.5419, t=0=0.5440
+
+FINDING:
+Composite peaks at offset t+2.
+Peak detection is AFTER onset — the signal lags behind hallucination.

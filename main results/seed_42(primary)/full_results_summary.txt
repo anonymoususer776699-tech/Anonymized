@@ -1,0 +1,37 @@
+FULL RESULTS SUMMARY — CAWC (UNSUPERVISED)
+============================================================
+REPORTING ROLE: Primary experiment results (seed 42).
+
+CONTRIBUTION: Retrieved context should reduce predictive uncertainty for faithful tokens — when it fails to do so, measured as Information Gain and KL Divergence between context-free and context-conditioned token distributions, that failure signal begins rising before hallucination onset and reaches peak separability at the hallucinated token (t−1 to t=0).
+
+METHOD: Purely unsupervised CAWC v5.
+No LogisticRegression. No supervised classifiers.
+Directions from theory. Weights fixed a priori.
+
+KEY RESULTS:
+  Entropy baseline AUROC:     0.6072
+  CAWC v5 composite AUROC:    0.7519
+  HaluEval zero-shot:         0.6523
+  Temporal: composite global peak at t+1, pre-onset at t-1
+
+EXPERIMENT TABLE:
+  Baseline 1: Token Entropy                AUROC=0.6072 CI=[0.5909,0.6238]
+  Baseline 2: SelfCheckGPT-NLI (Manakul 2023) AUROC=0.6098 CI=[0.5947,0.6256]
+  +IG (entropy+selfcheck+ig)               AUROC=0.6915 CI=[0.6781,0.7038]
+  +KL (entropy+selfcheck+ig+kl)            AUROC=0.7338 CI=[0.7165,0.7467]
+  +CD (entropy+selfcheck+ig+kl+cd)         AUROC=0.7418 CI=[0.7241,0.7552]
+  +SE (DeBERTa NLI clustering)             AUROC=0.7315 CI=[0.7143,0.7474]
+  CAWC v5 Composite (unsupervised)         AUROC=0.7519 CI=[0.7326,0.7677]
+  Individual: entropy                      AUROC=0.6072 CI=[0.5909,0.6238]
+  Individual: ig                           AUROC=0.7180 CI=[0.6991,0.7339]
+  Individual: kl                           AUROC=0.6719 CI=[0.6490,0.6905]
+  Individual: cd                           AUROC=0.7268 CI=[0.7101,0.7402]
+  Individual: selfcheck                    AUROC=0.6098 CI=[0.5947,0.6256]
+  Individual: se                           AUROC=0.5308 CI=[0.5027,0.5590]
+
+UNSUPERVISED VERIFICATION:
+  ✓ No sklearn classifiers used for composite
+  ✓ Directions from theoretical justification
+  ✓ Normalization from train metric values (no labels)
+  ✓ Weights fixed from theory (not optimized on data)
+  ✓ Test labels NEVER used for any parameter

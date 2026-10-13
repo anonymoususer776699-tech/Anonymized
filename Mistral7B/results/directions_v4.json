@@ -1,0 +1,38 @@
+{
+  "entropy": {
+    "raw": 0.5481,
+    "neg": 0.4519,
+    "negate": false,
+    "chosen": 0.5481
+  },
+  "ig": {
+    "raw": 0.4012,
+    "neg": 0.5988,
+    "negate": true,
+    "chosen": 0.5988
+  },
+  "kl": {
+    "raw": 0.4314,
+    "neg": 0.5686,
+    "negate": true,
+    "chosen": 0.5686
+  },
+  "cd": {
+    "raw": 0.6076,
+    "neg": 0.3924,
+    "negate": false,
+    "chosen": 0.6076
+  },
+  "se": {
+    "raw": 0.5,
+    "neg": 0.5,
+    "negate": false,
+    "chosen": 0.5
+  },
+  "selfcheck": {
+    "raw": 0.5558,
+    "neg": 0.4442,
+    "negate": false,
+    "chosen": 0.5558
+  }
+}

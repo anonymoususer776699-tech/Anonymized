@@ -1,0 +1,8 @@
+{
+  "seed": 42,
+  "ragtruth_samples_scored": 2700,
+  "halueval_samples_scored": 10000,
+  "cawc_wallclock_samples": 2700,
+  "cawc_wallclock_mean_sec": 3.600622674889035,
+  "cawc_wallclock_std_sec": 8.592472667090002
+}

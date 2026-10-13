@@ -1,0 +1,14 @@
+Method,AUROC,CI_low,CI_high,F1,Spearman_rho,ECE
+Baseline 1: Token Entropy,0.5938,0.577,0.6119,0.1029,0.0649,0.4547
+Baseline 2: SelfCheckGPT-NLI (Manakul 2023),0.5953,0.5795,0.6119,0.1004,0.066,0.434
++IG (entropy+selfcheck+ig),0.6726,0.6584,0.6873,0.125,0.1194,0.4725
++KL (entropy+selfcheck+ig+kl),0.7191,0.7031,0.7347,0.1502,0.1516,0.5125
++CD (entropy+selfcheck+ig+kl+cd),0.7273,0.7111,0.7436,0.1594,0.1573,0.5204
++SE (DeBERTa NLI clustering),0.7275,0.7113,0.7444,0.1571,0.1575,0.4315
+CAWC v5 Composite (unsupervised),0.7416,0.7229,0.7591,0.1761,0.1672,0.5412
+Individual: entropy,0.5938,0.577,0.6119,0.1029,0.0649,0.4547
+Individual: ig,0.709,0.6917,0.726,0.1486,0.1446,0.4524
+Individual: kl,0.6812,0.6595,0.7014,0.1563,0.1254,0.4495
+Individual: cd,0.7142,0.6989,0.7293,0.1534,0.1483,0.4662
+Individual: selfcheck,0.5953,0.5795,0.6119,0.1004,0.066,0.434
+Individual: se,0.5355,0.5102,0.5593,0.0851,0.025,0.0469

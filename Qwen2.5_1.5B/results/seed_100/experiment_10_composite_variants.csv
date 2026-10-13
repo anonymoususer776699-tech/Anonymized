@@ -1,0 +1,8 @@
+Variant,AUROC,Delta
+CAWC v5 (current),0.7412,0.0
+Static weights (u=0.5),0.7412,0.0
+Simple weighted avg (no extras),0.7184,-0.0227
+Higher selfcheck (0.20),0.7168,-0.0243
+No SE (weight=0),0.7322,-0.009
+Top-3 (IG+KL+CD equal),0.7224,-0.0188
+IG-only,0.709,-0.0322
